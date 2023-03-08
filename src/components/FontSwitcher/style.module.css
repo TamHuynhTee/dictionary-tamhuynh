@@ -1,0 +1,6 @@
+.switcher_container {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  position: relative;
+}
