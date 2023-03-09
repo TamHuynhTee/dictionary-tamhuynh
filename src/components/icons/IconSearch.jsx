@@ -1,0 +1,38 @@
+function IconSearch({ className }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+    >
+      <path
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        className="stroke-violet"
+        d="m12.663 12.663 3.887 3.887M1 7.664a6.665 6.665 0 1 0 13.33 0 6.665 6.665 0 0 0-13.33 0Z"
+      />
+    </svg>
+
+    // <svg
+    //   xmlns="http://www.w3.org/2000/svg"
+    //   width="22"
+    //   height="22"
+    //   viewBox="0 0 22 22"
+    //   className="fill-violet"
+    // >
+    //   <path
+    //     fill="none"
+    //     strokeLinecap="round"
+    //     strokeLinejoin="round"
+    //     strokeWidth="1.5"
+    //     className="stroke-gray-75 dark:stroke-violet"
+    //     d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+    //   />
+    // </svg>
+  );
+}
+
+export default IconSearch;
