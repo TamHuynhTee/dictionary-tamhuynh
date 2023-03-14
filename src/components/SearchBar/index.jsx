@@ -11,16 +11,15 @@ function SearchBar(props) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    setLoading(true);
     const value = refInput.current.value;
 
     if (!value) {
       setError(true);
       return;
     }
-
     if (!refInput.current) return;
 
+    setLoading(true);
     // fetch
     const initCall = await fetch(API_URL + value);
 
