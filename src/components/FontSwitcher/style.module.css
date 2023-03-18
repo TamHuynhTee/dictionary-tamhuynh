@@ -1,6 +1,49 @@
 .switcher_container {
-  display: flex;
-  align-items: center;
   height: 24px;
   position: relative;
+}
+
+.switcher_result {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switcher_overlay {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  background: #ffffff;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  z-index: 1;
+  min-width: 180px;
+  width: max-content;
+  right: 0;
+}
+
+.switcher_overlay.show {
+  display: block;
+}
+
+.switch_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.switch_item {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #2d2d2d;
+  cursor: pointer;
+}
+
+.switch_item:hover,
+.switch_item.active {
+  @apply text-violet;
 }

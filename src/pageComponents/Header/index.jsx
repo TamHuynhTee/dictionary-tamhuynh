@@ -13,7 +13,7 @@ function Header() {
         <div className="flex items-center h-full">
           <div className="flex items-center">
             <FontSwitcher />
-            <div className="mx-6 w-[1px] bg-gray-F4 h-[20px]"></div>
+            <div className="mx-6 w-[1px] bg-gray-97 h-[20px]"></div>
             <ThemeSwitcher />
             <div className="ml-5">
               <IconMoon />

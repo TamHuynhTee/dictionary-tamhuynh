@@ -11,7 +11,9 @@ function NotFoundResult({ data }) {
             className="w-full h-full object-contain"
           />
         </div>
-        <p className="mt-10 text-dark-2D text-xl font-bold">{data?.title}</p>
+        <p className="mt-10 text-dark-2D dark:text-white text-xl font-bold">
+          {data?.title}
+        </p>
         <p className="mt-6 text-gray-75 text-lg text-center">
           {data?.message} {data?.resolution}
         </p>

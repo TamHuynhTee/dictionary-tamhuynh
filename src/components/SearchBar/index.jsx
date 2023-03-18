@@ -41,14 +41,14 @@ function SearchBar(props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="h-16 w-full bg-gray-F4 rounded-2xl relative block"
+      className="h-16 w-full bg-gray-F4 dark:bg-dark-1F d rounded-2xl relative block"
     >
       <span className="sr-only">Search</span>
 
       <input
         ref={refInput}
         onChange={onChange}
-        className={`placeholder:opacity-25 caret-violet placeholder:text-dark-2D block bg-transparent w-full h-full rounded-2xl py-2 pl-6 pr-12 text-xl font-bold focus:outline-none focus:ring-violet focus:ring-1 transition ${
+        className={`placeholder:opacity-25 caret-violet dark:text-white dark:placeholder:text-gray-75 placeholder:text-dark-2D block bg-transparent w-full h-full rounded-2xl py-2 pl-6 pr-12 text-xl font-bold focus:outline-none focus:ring-violet focus:ring-1 transition ${
           error ? '!ring-error !ring-1' : ''
         }`}
         placeholder="Search for any word…"

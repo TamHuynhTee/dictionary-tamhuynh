@@ -15,10 +15,10 @@ function FoundResult({ data }) {
         };
 
         return (
-          <div key={i} className="my-6 first:mt-0">
+          <div key={i} className="mt-6 first:mt-0">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-dark-2D text-[64px] font-bold leading-[76px]">
+                <p className="text-dark-2D dark:text-white text-[64px] font-bold leading-[76px]">
                   {e.word}
                 </p>
                 <p className="text-violet text-[24px] font-normal leading-[30px] mt-[10px]">
@@ -26,7 +26,7 @@ function FoundResult({ data }) {
                 </p>
               </div>
 
-              <button onClick={playAudio}>
+              <button onClick={playAudio} className="group">
                 <IconPlay />
               </button>
             </div>
@@ -43,7 +43,7 @@ function FoundResult({ data }) {
                   href={sources[0]}
                   target="_blank"
                   rel="noindex,nofollow"
-                  className="text-sm text-dark-2D font-normal underline flex items-center gap-x-2"
+                  className="text-sm text-dark-2D dark:text-white font-normal underline flex items-center gap-x-2"
                 >
                   {sources[0]} <IconNewWindow />
                 </a>
@@ -65,8 +65,10 @@ function WordMeaning({ meaning }) {
   return (
     <div className="my-10">
       <div className="flex items-center">
-        <p className="italic font-bold text-2xl">{meaning?.partOfSpeech}</p>
-        <div className="ml-5 flex-1 h-[1px] bg-gray-E9"></div>
+        <p className="italic font-bold text-2xl text-dark-2D dark:text-white">
+          {meaning?.partOfSpeech}
+        </p>
+        <div className="ml-5 flex-1 h-[1px] bg-gray-E9 dark:bg-gray-97"></div>
       </div>
 
       {definitions.length > 0 && (
@@ -77,9 +79,11 @@ function WordMeaning({ meaning }) {
               return (
                 <li
                   key={definitionKey}
-                  className="text-lg text-dark-2D font-normal leading-6 mt-[13px] first:mt-0"
+                  className="text-lg font-normal leading-6 mt-[13px] first:mt-0"
                 >
-                  {definition?.definition}
+                  <span className="text-dark-2D dark:text-white">
+                    {definition?.definition}
+                  </span>
                   {definition?.example && (
                     <span className="block mt-[13px] text-gray-75">{`"${definition?.example}"`}</span>
                   )}
@@ -98,7 +102,7 @@ function WordMeaning({ meaning }) {
               return (
                 <span
                   key={synonymKey}
-                  className="text-xl text-violet cursor-pointer font-bold leading-6"
+                  className="text-xl text-violet hover:underline cursor-pointer font-bold leading-6"
                 >
                   {synonym}
                 </span>
@@ -115,7 +119,7 @@ function WordMeaning({ meaning }) {
               return (
                 <span
                   key={antonymKey}
-                  className="text-xl text-violet cursor-pointer font-bold leading-6"
+                  className="text-xl text-violet hover:underline cursor-pointer font-bold leading-6"
                 >
                   {antonym}
                 </span>
