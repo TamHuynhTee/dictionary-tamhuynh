@@ -1,10 +1,9 @@
-import './App.css';
-import SearchProvider from './contexts/searchContext';
-import Header from './pageComponents/Header';
-import SearchSection from './pageComponents/SearchSection';
-import ResultSection from './pageComponents/ResultSection';
 import { useEffect } from 'react';
+import './App.css';
+import FontProvider from './contexts/font.context';
+import SearchProvider from './contexts/search.context';
 import { isDarkMode } from './helpers';
+import Layout from './layouts';
 
 function App() {
   useEffect(() => {
@@ -16,6 +15,7 @@ function App() {
       }
     };
     pickTheme();
+
     window.addEventListener('storage', pickTheme);
 
     return () => {
@@ -25,11 +25,9 @@ function App() {
 
   return (
     <SearchProvider>
-      <div className="min-h-screen py-[58px] dark:bg-dark-05">
-        <Header />
-        <SearchSection />
-        <ResultSection />
-      </div>
+      <FontProvider>
+        <Layout />
+      </FontProvider>
     </SearchProvider>
   );
 }

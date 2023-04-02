@@ -7,6 +7,24 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+
+.switch_toggle:checked ~ .switcher_overlay,
+.switch_toggle:checked ~ .overlay_hidden {
+  display: block;
+}
+
+.overlay_hidden {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1;
 }
 
 .switcher_overlay {
@@ -17,14 +35,15 @@
   box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 24px;
-  z-index: 1;
+  z-index: 10;
   min-width: 180px;
   width: max-content;
   right: 0;
 }
 
-.switcher_overlay.show {
-  display: block;
+:global(.dark) .switcher_overlay {
+  @apply bg-dark-05;
+  box-shadow: 0px 5px 30px #a445ed;
 }
 
 .switch_list {
@@ -39,7 +58,14 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
-  color: #2d2d2d;
+  @apply text-dark-2D;
+}
+
+:global(.dark) .switch_item {
+  @apply text-white;
+}
+
+.switch_item > label {
   cursor: pointer;
 }
 

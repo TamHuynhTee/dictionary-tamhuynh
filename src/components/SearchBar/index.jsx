@@ -1,37 +1,15 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useState } from 'react';
 import IconSearch from '../icons/IconSearch';
-import { API_URL } from '../../constants';
-import { SearchContext } from '../../contexts/searchContext';
+import { SearchContext } from '../../contexts/search.context';
 
 function SearchBar(props) {
-  const { setFound, found, setData, setLoading } = useContext(SearchContext);
+  const { onSearch, refInput } = useContext(SearchContext);
 
-  const refInput = useRef(null);
   const [error, setError] = useState(false);
 
   async function onSubmit(e) {
     e.preventDefault();
-    const value = refInput.current.value;
-
-    if (!value) {
-      setError(true);
-      return;
-    }
-    if (!refInput.current) return;
-
-    setLoading(true);
-    // fetch
-    const initCall = await fetch(API_URL + value);
-
-    const data = await initCall.json();
-    setData(data);
-
-    if (initCall.ok) {
-      if (found != true) setFound(true);
-    } else {
-      if (found != false) setFound(false);
-    }
-    setLoading(false);
+    onSearch();
   }
 
   function onChange(e) {
@@ -41,14 +19,14 @@ function SearchBar(props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="h-16 w-full bg-gray-F4 dark:bg-dark-1F d rounded-2xl relative block"
+      className="h-16 max-md:h-12 w-full bg-gray-F4 dark:bg-dark-1F d rounded-2xl relative block"
     >
       <span className="sr-only">Search</span>
 
       <input
         ref={refInput}
         onChange={onChange}
-        className={`placeholder:opacity-25 caret-violet dark:text-white dark:placeholder:text-gray-75 placeholder:text-dark-2D block bg-transparent w-full h-full rounded-2xl py-2 pl-6 pr-12 text-xl font-bold focus:outline-none focus:ring-violet focus:ring-1 transition ${
+        className={`placeholder:opacity-25 caret-violet dark:text-white dark:placeholder:text-gray-75 placeholder:text-dark-2D block bg-transparent w-full h-full rounded-2xl py-2 pl-6 pr-12 text-xl font-bold focus:outline-none focus:ring-violet focus:ring-1 transition max-md:text-lg ${
           error ? '!ring-error !ring-1' : ''
         }`}
         placeholder="Search for any word…"
