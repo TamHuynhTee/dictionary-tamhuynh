@@ -13,10 +13,9 @@ export default function SearchProvider(props) {
     const value = refInput.current.value;
 
     if (!value) {
-      setError(true);
-      return;
+      return false;
     }
-    if (!refInput.current) return;
+    if (!refInput.current) return null;
 
     setLoading(true);
     // fetch
@@ -31,6 +30,7 @@ export default function SearchProvider(props) {
       if (found != false) setFound(false);
     }
     setLoading(false);
+    return true;
   }
 
   return (

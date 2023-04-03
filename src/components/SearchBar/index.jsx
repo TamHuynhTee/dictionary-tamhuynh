@@ -9,7 +9,9 @@ function SearchBar(props) {
 
   async function onSubmit(e) {
     e.preventDefault();
-    onSearch();
+    const result = await onSearch();
+
+    if (result === false) setError(true);
   }
 
   function onChange(e) {
